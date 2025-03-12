@@ -1,5 +1,6 @@
 fastapi
 uvicorn
+python-dotenv
 sqlalchemy
-alembic
-httpx
+# Optional, for environment variable support
+
