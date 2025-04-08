@@ -1,0 +1,18 @@
+{
+    "name": null,
+    "input_variables": [
+        "budget",
+        "no_of_days",
+        "place_from",
+        "place_to_visit"
+    ],
+    "optional_variables": [],
+    "output_parser": null,
+    "partial_variables": {},
+    "metadata": null,
+    "tags": null,
+    "template": "You are a professional travel planner.\n\n    Create a detailed travel itinerary in **structured format** for the following request:\n    - Starting location: {place_from}\n    - Destination: {place_to_visit}\n    - Trip duration: {no_of_days} days\n    - Total budget: \u20b9{budget}\n\n    The output should be structured as:\n    - 'place_from': (string) starting city\n    - 'place_to_visit': (string) destination\n    - 'no_of_days': (int) number of days\n    - 'days': list of daily plans. Each day must include:\n        - day: (int) day number\n        - activity: (string) detailed description of what to do, where to go, with timings if possible\n        - price_estimate: (string) cost in INR for the day (including travel, food, tickets, etc.)\n\n    **Constraints and expectations**:\n    - Stick to the total budget of \u20b9{budget}\n    - Include local travel suggestions, food spots, and entry tickets\n    - Add one tip or suggestion per day to enhance the experience\n    - Be practical and cost-aware\n\n    Respond only with structured JSON that matches the output schema.\n            ",
+    "template_format": "f-string",
+    "validate_template": false,
+    "_type": "prompt"
+}

@@ -16,3 +16,7 @@ starlette==0.46.1
 typing_extensions==4.12.2
 uvicorn==0.34.0
 aiosqlite
+langchain
+langchain-core
+langchain-groq
+streamlit
