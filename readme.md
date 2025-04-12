@@ -187,7 +187,7 @@ While this is in development, for full-stack deployment later (including LLM inf
 
 ## 👨‍💼 Author
 
-**Your Name**  
+**Aditya Raj**  
 Final Year CSE @ Central University of Haryana  
 [GitHub](https://github.com/your-username) | [LinkedIn](https://linkedin.com/in/your-profile)
 
