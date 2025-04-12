@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Travel Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Smart Travel Planner 🧳</h1>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="tabs">
+    <button class="tab-button active" data-tab="structured">Structured Itinerary</button>
+    <button class="tab-button" data-tab="freePrompt">Free Prompt</button>
+  </nav>
+
+  <!-- Structured Itinerary Form -->
+  <section id="structured" class="form-section active-section">
+    <form id="itineraryForm">
+      <input type="text" id="from" placeholder="Enter Starting Location (e.g. Delhi)" required />
+      <input type="text" id="to" placeholder="Enter Destination (e.g. Gaya)" required />
+      <input type="number" id="days" placeholder="Enter Number of Days" required min="1" />
+      <input type="number" id="budget" placeholder="Enter Budget (e.g. 1200)" required />
+      <button type="submit">Generate Itinerary</button>
+    </form>
+  </section>
+
+  <!-- Free Prompt Form -->
+  <section id="freePrompt" class="form-section">
+    <form id="promptForm">
+      <textarea id="prompt" placeholder="Enter your free-form travel prompt here..." rows="5" required></textarea>
+      <button type="submit">Generate Itinerary</button>
+    </form>
+  </section>
+
+  <!-- Display Section -->
+  <section id="result-section">
+    <h2>Your Itinerary</h2>
+    <div id="itineraryDisplay"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
