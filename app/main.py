@@ -5,11 +5,32 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate,load_prompt
 from langchain_core.runnables import RunnableLambda
 
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+
+
+
+
+
+
 
 load_dotenv()
 app=FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://0.0.0.0:5500",
+        "http://127.0.0.1:5500",
+        "http://localhost:5500"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+app.mount("/frontend", StaticFiles(directory="static", html=True), name="frontend")
 
-model=ChatGroq(model="llama3-70b-8192")
+
+
+
+model=ChatGroq(model="meta-llama/llama-4-scout-17b-16e-instruct")
 structure_model=model.with_structured_output(ItineraryResponse)
 template=load_prompt('app/template_itinerary.json')
 
@@ -31,6 +52,7 @@ async def get_itinerary(request: ItineraryRequest):
                 "budget":request.budget
             }
         )
+        print(result)
     except Exception as e:
         # You can customize error handling further here
         raise HTTPException(status_code=500, detail=f"LLM error: {e}")
@@ -41,12 +63,13 @@ async def get_itinerary(request: ItineraryRequest):
 
     return result
 
-
+# structure_data=structure_model.invoke(I)
 
 chain = (
     RunnableLambda(lambda x: template.format(**x)) |
     model.with_structured_output(ItineraryResponse)
 )
+
 
 @app.post(
     "/prompts",
@@ -56,6 +79,7 @@ chain = (
 async def prompts(request: FreePromptRequest):
     try:
         structured_input = model.with_structured_output(ItineraryRequest).invoke(request.prompt)
+        print(structured_input)
         result = chain.invoke(structured_input.model_dump())
 
     except Exception as e:
