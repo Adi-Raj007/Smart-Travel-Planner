@@ -189,7 +189,7 @@ While this is in development, for full-stack deployment later (including LLM inf
 
 **Aditya Raj**  
 Final Year CSE @ Central University of Haryana  
-[GitHub](https://github.com/your-username) | [LinkedIn](https://linkedin.com/in/your-profile)
+[GitHub](https://github.com/Adi-Raj007) | [LinkedIn](https://www.linkedin.com/in/aditya-raj-ab7b06250/)
 
 ---
 
