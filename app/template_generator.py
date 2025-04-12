@@ -21,10 +21,15 @@ template=PromptTemplate(
     - Stick to the total budget of ₹{budget}
     - Include local travel suggestions, food spots, and entry tickets
     - Add one tip or suggestion per day to enhance the experience
+    - Add activities as many as possible.
     - Be practical and cost-aware
+    - make a detail itinerary and handle spelling mistakes also 
+    - if number of days is not given take that as 5 days .
+    
 
     Respond only with structured JSON that matches the output schema.
             """,
     input_variables=["place_to_visit", "place_from", "no_of_days", "budget"]
 )
+
 template.save('template_itinerary.json')
